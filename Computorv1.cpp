@@ -27,7 +27,7 @@ bool is_zero(double number) {
 // This algorithm is quadratically convergent: the number of correct digits x roughly doubles with each iteration. 
 double ft_sqrt(double n) {
 	double x = 1;
-	while (is_zero(n - (x * x)))
+	while (!is_zero(n - (x * x)))
 		x = (x + n/x)/2; 
 
 	return x;
@@ -164,6 +164,7 @@ void Computorv1::_find_delta() {
 	double b = this->reduced_equation[1];
 	double c = this->reduced_equation[0];
 
+
 	this->delta = (b * b) - 4 * a * c;
 	cout << "Discriminant is: " << this->delta << endl; 
 }
@@ -175,6 +176,7 @@ void Computorv1::_find_sol_quadratic() {
 	if (is_zero(this->delta)) {
 		this->x1.Re = (-1 * b) / (2 * a);
 		cout << "The unique solution is " << this->x1.Re << endl;
+		return ;
 	} else if (this->delta < 0) {
 		double sq = ft_sqrt((this->delta * -1));
 		this->x1.Re = (-1 * b) / (2 * a);

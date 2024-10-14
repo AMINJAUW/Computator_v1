@@ -5,6 +5,7 @@ int main(int argc, char **argv) {
 	if (argc != 2) {
 		cerr << "Wrong number of arguments" << endl;
 		cerr << "usage: ./computor \"a * X^2 + b * X^1 + c = 0\"";
+		exit(1);
 	}
 
 	try
